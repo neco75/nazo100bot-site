@@ -16,7 +16,7 @@ const ImageDisplay = ({ showFlagItem, answerFlagIds }: ImageDisplayProps) => {
     <div>
       <div className="mb-4">
         <label className="inline-flex items-center me-5 cursor-pointer">
-          <span className="ms-3 mx-2 text-sm font-medium">すでに正解されている問題の回答を表示する</span>
+          <span className="ms-3 mx-2 text-sm font-medium">回答表示</span>
           <input 
             type="checkbox" 
             value="" 
