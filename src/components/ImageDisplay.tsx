@@ -2,7 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState,Suspense } from 'react'
+import Loading from './Loading'
 
 type ImageDisplayProps = {
   showFlagItem: [number, string, number, number, string][]
@@ -42,17 +43,19 @@ const ImageDisplay = ({ showFlagItem, answerFlagIds }: ImageDisplayProps) => {
               }}
             >
               {item ? (
-                <div className="text-center">
-                  <Link href={`/image/${item[4].split('.')[0]}`}>
-                    <Image
-                      src={`/img/quiz/${item[4]}`}
-                      alt={item[1]}
-                      width={350}
-                      height={350}
-                    />
-                  </Link>
-                  {showAnswer && item[3] === 1 && <p>{item[1]}</p>}
-                </div>
+                <Suspense fallback={<Loading />}>
+                  <div className="text-center">
+                    <Link href={`/image/${item[4].split('.')[0]}`}>
+                      <Image
+                        src={`/img/quiz/${item[4]}`}
+                        alt={item[1]}
+                        width={350}
+                        height={350}
+                      />
+                    </Link>
+                    {showAnswer && item[3] === 1 && <div>{item[1]}</div>}
+                  </div>
+                </Suspense>
               ) : (
                 <Image
                   src="/img/sample.png"

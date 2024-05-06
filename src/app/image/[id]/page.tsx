@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import {Suspense} from 'react'
+import Loading from "@/components/Loading"
 
 interface Props {
   params: {
@@ -11,13 +13,15 @@ const ImageDetailPage = ({ params }: Props) => {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <Image
-        src={`/img/quiz/${id}.png`}
-        alt={`Image ${id}`}
-        width={800}
-        height={600}
-        className="shadow-lg rounded-lg"
-      />
+        <Suspense fallback={<Loading />}>
+          <Image
+            src={`/img/quiz/${id}.png`}
+            alt={`Image ${id}`}
+            width={800}
+            height={600}
+            className="shadow-lg rounded-lg"
+          />
+        </Suspense>
     </div>
   )
 }
