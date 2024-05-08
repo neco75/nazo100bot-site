@@ -6,7 +6,7 @@ const NotFound = () => {
        
           <h2 className="text-[50px] text-center">404</h2>
           <h2 className="text-[40px] leading-tight text-center">
-            <div>NOT  <Link href="/guideline">FOUND</Link></div>
+            <div>NOT  <Link href="/memory">FOUND</Link></div>
           </h2>
           <div className="text-center mt-4">このページは存在しません。</div>
       </div>
