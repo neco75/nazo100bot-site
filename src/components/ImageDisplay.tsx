@@ -48,7 +48,7 @@ const ImageDisplay = ({ showFlagItem, answerFlagIds }: ImageDisplayProps) => {
                     <Link href={`/image/${item[4].split('.')[0]}`}>
                       <Image
                         src={`/img/quiz/${item[4]}`}
-                        alt={item[1]}
+                        alt={item[4]}
                         width={350}
                         height={350}
                       />
