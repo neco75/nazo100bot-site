@@ -1,4 +1,3 @@
-// app/page.tsx
 import ImageDisplay from '../components/ImageDisplay'
 
 async function getData() {
