@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 function page() {
   return (
@@ -36,6 +37,11 @@ function page() {
           <li>お問い合わせ：<a href="mailto:csp-info@ml.kadokawa.jp" style={{color:"lightgreen"}}>csp-info@ml.kadokawa.jp</a></li>
         </ul>
       </div>
+      <div className="text-center mt-4">
+            <Link href="/" className="px-4 py-2 bg-green-500 text-black rounded hover:bg-green-700 transition duration-300">
+              ホームに戻る
+            </Link>
+          </div>
     </div>
   )
 }
