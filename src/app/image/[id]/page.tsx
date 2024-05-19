@@ -5,7 +5,6 @@ import {Suspense, useState} from 'react'
 import Loading from "@/components/Loading"
 import NotFound from '@/app/not-found'
 import BackHome from '@/components/BackHome'
-import Link from 'next/link'
 
 interface Props {
   params: {

@@ -11,11 +11,9 @@ export default async function Home() {
 
   return (
     <div className=' p-1 text-center'>
-
       <div className='text-lg'>現在公開: {show_flag_item.length} / 100</div>
       <div className='text-lg'>解答済み: {answer_flag_ids.length} / 100</div>
       <ImageDisplay showFlagItem={show_flag_item} answerFlagIds={answer_flag_ids} />
-
     </div>
   )
 
