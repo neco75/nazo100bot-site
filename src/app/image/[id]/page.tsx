@@ -4,6 +4,7 @@ import Image from 'next/image'
 import {Suspense, useState} from 'react'
 import Loading from "@/components/Loading"
 import NotFound from '@/app/not-found'
+import BackHome from '@/components/BackHome'
 import Link from 'next/link'
 
 interface Props {
@@ -38,11 +39,7 @@ const ImageDetailPage = ({ params }: Props) => {
           />
         </Suspense>
       </div>
-      <div className="text-center mt-4">
-        <Link href="/" className="px-4 py-2 bg-green-500 text-black rounded hover:bg-green-700 transition duration-300">
-          ホームに戻る
-        </Link>
-      </div>
+      <BackHome />
     </div>
   )
 }

@@ -29,44 +29,47 @@ const ImageDisplay = ({ showFlagItem, answerFlagIds }: ImageDisplayProps) => {
         </label>
       </div>
       <div className="flex flex-wrap justify-center" style={{width: '100%' , margin: '0 auto'}}>
-        {Array.from({ length: 100 }, (_, i) => i + 1).map((id) => {
-          const item = showFlagItem.find((item) => item[0] === id);
+        {Array
+          .from({ length: 100 }, (_, i) => i + 1)
+          .map((id) => {
+            const item = showFlagItem.find((item) => item[0] === id);
 
-          return (
-            <div
-              key={id}
-              className=" w-1/5 box-border flex justify-center items-center m-2"
-              style={{
-                border: answerFlagIds.includes(id)
-                  ? '2px solid green'
-                  : '2px solid red',
-              }}
-            >
-              {item ? (
-                <Suspense fallback={<Loading />}>
-                  <div className="text-center">
-                    <Link href={`/image/${item[4].split('.')[0]}`}>
-                      <Image
-                        src={`/img/quiz/${item[4]}`}
-                        alt={item[4]}
-                        width={350}
-                        height={350}
-                      />
-                    </Link>
-                    {showAnswer && item[3] === 1 && <div>{item[1]}</div>}
-                  </div>
-                </Suspense>
-              ) : (
-                <Image
-                  src="/img/sample.png"
-                  alt="Sample Image"
-                  width={350}
-                  height={350}
-                />
-              )}
-            </div>
-          );
-        })}
+            return (
+              <div
+                key={id}
+                className=" w-1/5 box-border flex justify-center items-center m-2"
+                style={{
+                  border: answerFlagIds.includes(id)
+                    ? '2px solid green' // 正解
+                    : '2px solid red', // 不正解
+                }}
+              >
+                {item ? (
+                  <Suspense fallback={<Loading />}>
+                    <div className="text-center">
+                      <Link href={`/image/${item[4].split('.')[0]}`}>
+                        <Image
+                          src={`/img/quiz/${item[4]}`}
+                          alt={item[4]}
+                          width={350}
+                          height={350}
+                        />
+                      </Link>
+                      {showAnswer && item[3] === 1 && <div>{item[1]}</div>}
+                    </div>
+                  </Suspense>
+                ) : (
+                  <Image
+                    src="/img/sample.png"
+                    alt="Sample Image"
+                    width={350}
+                    height={350}
+                  />
+                )}
+              </div>
+            );
+          })
+        }
       </div>
     </div>
   );
